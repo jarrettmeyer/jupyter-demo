@@ -1,7 +1,16 @@
 #!/bin/bash
+#
+# The existing version of pip is 9.0.1. The latest version (as of this script)
+# is 19.0.3. Let's upgrade that before continuing.
+#
+# After the upgrade is done, run the default assemble script.
+#
+# After the default assemble script is complete, fix the permissions on app.sh.
+#
+echo "Upgrading pip"
+pip install --upgrade pip
 echo "Running default build."
 ${STI_SCRIPTS_PATH}/assemble
 echo "Fixing permissions."
 chmod 755 /opt/app-root/src/app.sh
-echo "Upgrading pip"
-pip install --upgrade pip
+
